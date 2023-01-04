@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/bsbs # jdbc:mysql://${DB_URL}:3306/${DB_NAME}
+    username: bsrg # ${DB_USERNAME}
+    password:  # ${DB_PASSWORD}
+    driver-class-name: org.h2.Driver # com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto : none
+    properties:
+      hibernate:
+        format_sql : true
+
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 20MB
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+
+server:
+  servlet:
+    session:
+      timeout: 36000
+      tracking-modes: 'cookie'
