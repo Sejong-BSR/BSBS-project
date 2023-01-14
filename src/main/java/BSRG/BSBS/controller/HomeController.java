@@ -11,6 +11,13 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    @GetMapping("/login")
+    public String temp(Model model){
+
+
+        return "login";
+    }
+
     @GetMapping("/")
     public String Thymeleaf(Model model){
         List<Problem> productList = new ArrayList<>();
