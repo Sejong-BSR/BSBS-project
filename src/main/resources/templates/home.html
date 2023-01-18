@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="w-100 h-100">
+<html lang="en" class="w-100 h-100" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,6 +78,7 @@
     </form>
 </nav>
 
+
 <div class="container text-center my-5">
     <div class="row">
         <div class="col">
@@ -86,18 +87,19 @@
     </div>
 </div>
 
-<div class="container text-center main" style="height: 33%;">
+<div class="container text-center main" style="height: 33%; ">
     <div class="box h-100">
         <th:block th:each="problem :${productList}">
 
         <div th:if="${problem.pass==0}" class="row my-1 p-1">
+            <hr>
             <div class="col-2 align-self-center">
                 <svg th:if="${problem.pass==1}" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                     <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                 </svg>
             </div>
 
-            <div class="row col-8 fw-bold" style="background-color:rgb(200,235,255); border-radius: 32px 0px 0px 32px;">
+            <div class="row col-8 fw-bold" style="background-color:rgb(255,255,255); border-radius: 32px 0px 0px 32px;">
                 <div class="col-2 fs-2 text-center" style="color: silver" th:if="${problem.ranktype=='silver'}" th:text="${problem.rank}">S1</div>
                 <div class="col-2 fs-2 text-center" style="color: gold" th:if="${problem.ranktype=='gold'}" th:text="${problem.rank}">G1</div>
                 <div class="col-2 fs-2 text-center" style="color: skyblue" th:if="${problem.ranktype=='platinum'}" th:text="${problem.rank}">P1</div>
@@ -105,20 +107,22 @@
                 <div class="col fs-4 text-center text-truncate p-2" th:text="${problem.name}">아기상어와함께 여행을</div>
             </div>
 
-            <div class="row col-2" style="background-color:rgb(200,235,255); border-radius: 0px 32px 32px 0px;">
+            <div class="row col-2" style="background-color:rgb(255,255,255); border-radius: 0px 32px 32px 0px;">
             </div>
+
 
         </div>
 
 
         <div th:if="${problem.pass==1}" class="row my-1 p-1">
+            <hr>
             <div class="col-2 align-self-center">
                 <svg th:if="${problem.pass==1}" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                     <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                 </svg>
             </div>
 
-            <div class="row col-8 fw-bold" style="background-color:rgb(200,235,255); border-radius: 32px 32px 32px 32px;">
+            <div class="row col-8 fw-bold" style="background-color:rgb(255,255,255); border-radius: 32px 32px 32px 32px;">
                 <div class="col-2 fs-2 text-center" style="color: silver" th:if="${problem.ranktype=='silver'}" th:text="${problem.rank}">S1</div>
                 <div class="col-2 fs-2 text-center" style="color: gold" th:if="${problem.ranktype=='gold'}" th:text="${problem.rank}">G1</div>
                 <div class="col-2 fs-2 text-center" style="color: skyblue" th:if="${problem.ranktype=='platinum'}" th:text="${problem.rank}">P1</div>
@@ -139,6 +143,7 @@
                     </svg>
                 </div>
             </div>
+
         </div>
 
         </th:block>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="w-100 h-100">
+<html lang="en" class="w-100 h-100" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,16 +71,15 @@
     </div>
 </div>
 
-<div class="w-100 d-sm-flex justify-content-center">
-    <form class="row w-50">
-        <div class="col-4">
-            <input type="password" class="form-control" id="inputPassword2" placeholder="백준 아이디를 입력해주세요!">
-        </div>
-        <div class="col-2">
+<div class="container text-center">
+    <form class="row">
+        <div class="col-12 d-sm-flex justify-content-center">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" placeholder="백준 아이디를 입력해주세요!!">
             <button type="submit" class="btn btn-primary mb-3">Login</button>
         </div>
+
     </form>
 </div>
 
 </body>
-</html>
+</>
