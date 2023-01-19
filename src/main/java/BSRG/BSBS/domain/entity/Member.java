@@ -18,6 +18,19 @@ public class Member {
     @GeneratedValue
     @Column(name = "member_id")
     private long id;
+    private String bojId;
+    private String solvedNums;
     private String link; // profile link (BOJ site)
+
+    public static Member create(String bojId) {
+        Member member = new Member();
+        member.bojId = bojId;
+        member.link = "https://www.acmicpc.net/user/" + bojId;
+        return member;
+    }
+
+    public void setSolvedNums(String updatedSolvedNums) {
+        this.solvedNums = updatedSolvedNums;
+    }
 
 }

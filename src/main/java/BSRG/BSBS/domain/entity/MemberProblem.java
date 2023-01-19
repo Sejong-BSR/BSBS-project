@@ -1,6 +1,6 @@
 package BSRG.BSBS.domain.entity;
 
-import BSRG.BSBS.domain.etc.ProblemStatus;
+import BSRG.BSBS.domain.etc.ProblemState;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +25,28 @@ public class MemberProblem {
     @JoinColumn(name = "problem_id")
     private Problem problem;
 
-    @Enumerated(EnumType.STRING)
-    private ProblemStatus status;
+    private ProblemState problemState;
+    private Boolean solved = Boolean.FALSE;
+
+
+    public static MemberProblem create(Member member, Problem problem) {
+        MemberProblem memberProblem = new MemberProblem();
+        memberProblem.member = member;
+        memberProblem.problem = problem;
+        memberProblem.problemState = ProblemState.NOW;
+
+        return memberProblem;
+    }
+
+    public void UpdateProblemState() {
+        this.problemState = ProblemState.PREV;
+    }
+
+    public void checkSolved() {
+        Long number = this.problem.getNumber();
+        String solvedNums = this.member.getSolvedNums();
+        if (solvedNums.contains(String.valueOf(number))) {
+            this.solved = Boolean.TRUE;
+        }
+    }
 }
