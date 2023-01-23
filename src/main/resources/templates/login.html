@@ -13,38 +13,19 @@
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <style>
-
-
-        button{
-            border: none !important;
+        input,button{
+            border-radius: 50px 50px 50px 50px;
+            border: solid lightgray 1px;
         }
-        input{
-            border: gray 1px solid !important;
-        }
-
         @media (min-width: 1001px) {
-            .main{
-                width:  50%; !important;
-            }
-            .bot_box{
-                width: 50%; !important;
+            .box {
+                width: 35%;!important;
             }
         }
 
         @media (max-width: 1000px) {
-            .main{
-                width: 100%; !important;
-            }
-
-            .bot_box{
-                width: 100%; !important;
-            }
-            html{
-                font-size: 10px; !important;
-            }
-            svg{
-                width: 20px;
-                height: 20px;
+            .box {
+                width: 50%;!important;
             }
         }
     </style>
@@ -71,15 +52,11 @@
     </div>
 </div>
 
-<div class="container text-center">
-    <form class="row">
-        <div class="col-12 d-sm-flex justify-content-center">
-            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" placeholder="백준 아이디를 입력해주세요!!">
-            <button type="submit" class="btn btn-primary mb-3">Login</button>
-        </div>
-
-    </form>
+<div class="justify-content-center align-items-center d-sm-flex w-100">
+    <div class="w-100 justify-content-center d-sm-flex" style="height: 50px;">
+        <input class="p-3 box" type="text" placeholder="백준 아이디를 입력해주세요. [ENTER]">
+    </div>
 </div>
 
 </body>
-</>
+</html>

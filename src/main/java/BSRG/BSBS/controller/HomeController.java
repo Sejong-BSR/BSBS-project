@@ -33,6 +33,7 @@ public class HomeController {
         Member loginMember = memberService.findByBojId("bob8dod");
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
         model.addAttribute("memberProblemList",memberProblems);
+
         return "home";
     }
 }
