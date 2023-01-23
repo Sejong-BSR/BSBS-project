@@ -15,8 +15,23 @@
     <style>
         input,button{
             border-radius: 50px 50px 50px 50px;
-            border: solid lightgray 1px;
+            border: solid gray 1px;
+
         }
+        .ani_box1{
+            animation: scaleImage 2s linear;
+        }
+
+        @keyframes scaleImage {
+            0%{
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+
         @media (min-width: 1001px) {
             .box {
                 width: 35%;!important;
@@ -44,7 +59,7 @@
     </form>
 </nav>
 
-<div class="container text-center my-5">
+<div class="container text-center my-5 ani_box1">
     <div class="row">
         <div class="col">
             <p class="fs-1 fw-bold">뿌셔뿌셔</p>
@@ -52,7 +67,7 @@
     </div>
 </div>
 
-<div class="justify-content-center align-items-center d-sm-flex w-100">
+<div class="justify-content-center align-items-center d-sm-flex w-100 ani_box1">
     <div class="w-100 justify-content-center d-sm-flex" style="height: 50px;">
         <input class="p-3 box" type="text" placeholder="백준 아이디를 입력해주세요. [ENTER]">
     </div>
