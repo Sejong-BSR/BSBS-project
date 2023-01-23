@@ -23,14 +23,16 @@ public class HomeController {
     private final ProblemService problemService;
     private final MemberProblemService memberProblemService;
 
+    @GetMapping("/login")
+    public String temp(Model model){
+        return "login";
+    }
+
     @GetMapping("/")
     public String home(Model model){
         Member loginMember = memberService.findByBojId("bob8dod");
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
-
+        model.addAttribute("problemList",memberProblems);
         return "home";
     }
-
-
-
 }
