@@ -45,7 +45,7 @@ public class MemberProblem {
     public void checkSolved() {
         Long number = this.problem.getNumber();
         String solvedNums = this.member.getSolvedNums();
-        if (solvedNums.contains(String.valueOf(number))) {
+        if (solvedNums != null && solvedNums.contains(String.valueOf(number))) {
             this.solved = Boolean.TRUE;
         }
     }

@@ -32,7 +32,7 @@ public class HomeController {
     public String home(Model model){
         Member loginMember = memberService.findByBojId("bob8dod");
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
-        model.addAttribute("problemList",memberProblems);
+        model.addAttribute("memberProblemList",memberProblems);
         return "home";
     }
 }

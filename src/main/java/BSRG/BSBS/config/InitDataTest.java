@@ -32,7 +32,9 @@ public class InitDataTest {
 
         public void dbInit1() { // create Member, Problem, MemberProblem(solved problem's infos)
             Member bob8dod = Member.create("bob8dod");
+            bob8dod.setSolvedNums("1001 3003 4004");
             memberService.save(bob8dod);
+
 
             Problem p1001 = Problem.create(1001L, "S5", "아기상어와함께 여행을");
             Problem p2002 = Problem.create(2002L,"S4","주사위게임");
@@ -56,12 +58,37 @@ public class InitDataTest {
             problemService.save(p9009);
             problemService.save(p10001);
 
+            // All recommended Problems
             MemberProblem mp1001 = MemberProblem.create(bob8dod, p1001);
+            MemberProblem mp2002 = MemberProblem.create(bob8dod, p2002);
             MemberProblem mp3003 = MemberProblem.create(bob8dod, p3003);
+            MemberProblem mp4004 = MemberProblem.create(bob8dod, p4004);
+            MemberProblem mp5005 = MemberProblem.create(bob8dod, p5005);
             MemberProblem mp6006 = MemberProblem.create(bob8dod, p6006);
+            MemberProblem mp7007 = MemberProblem.create(bob8dod, p7007);
+            MemberProblem mp8008 = MemberProblem.create(bob8dod, p8008);
+            MemberProblem mp9009 = MemberProblem.create(bob8dod, p9009);
+            MemberProblem mp10001 = MemberProblem.create(bob8dod, p10001);
+
+            // Prev recommended Problems
+            mp6006.UpdateProblemState();
+            mp7007.UpdateProblemState();
+            mp8008.UpdateProblemState();
+            mp9009.UpdateProblemState();
+            mp10001.UpdateProblemState();
+
             memberProblemService.save(mp1001);
+            memberProblemService.save(mp2002);
             memberProblemService.save(mp3003);
+            memberProblemService.save(mp4004);
+            memberProblemService.save(mp5005);
             memberProblemService.save(mp6006);
+            memberProblemService.save(mp7007);
+            memberProblemService.save(mp8008);
+            memberProblemService.save(mp9009);
+            memberProblemService.save(mp10001);
+
+
 
         }
 
