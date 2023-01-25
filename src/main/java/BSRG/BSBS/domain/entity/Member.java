@@ -33,4 +33,8 @@ public class Member {
         this.solvedNums = updatedSolvedNums;
     }
 
+    public Boolean checkSolved(Long num) {
+        return this.solvedNums.contains(num.toString());
+    }
+
 }

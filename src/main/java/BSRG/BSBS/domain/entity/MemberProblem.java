@@ -42,11 +42,12 @@ public class MemberProblem {
         this.problemState = ProblemState.PREV;
     }
 
-    public void checkSolved() {
+    public Boolean checkSolved() {
         Long number = this.problem.getNumber();
         String solvedNums = this.member.getSolvedNums();
         if (solvedNums != null && solvedNums.contains(String.valueOf(number))) {
             this.solved = Boolean.TRUE;
         }
+        return this.solved;
     }
 }

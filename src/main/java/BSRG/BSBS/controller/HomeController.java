@@ -44,4 +44,13 @@ public class HomeController {
 
         return "home";
     }
+
+    @GetMapping("/add_problem")
+    public String addProblem(Model model) {
+        Member loginMember = memberService.findByBojId("bob8dod");
+        memberProblemService.recommend(loginMember);
+        List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
+        model.addAttribute("memberProblemList",memberProblems);
+        return "home";
+    }
 }
