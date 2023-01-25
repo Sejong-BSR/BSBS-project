@@ -3,6 +3,7 @@ package BSRG.BSBS.repository;
 import BSRG.BSBS.domain.entity.Member;
 import BSRG.BSBS.domain.entity.MemberProblem;
 import BSRG.BSBS.domain.entity.QMemberProblem;
+import BSRG.BSBS.domain.entity.QProblem;
 import BSRG.BSBS.domain.etc.ProblemState;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 import static BSRG.BSBS.domain.entity.QMemberProblem.memberProblem;
+import static BSRG.BSBS.domain.entity.QProblem.problem;
 
 @Repository
 @RequiredArgsConstructor
@@ -28,5 +30,12 @@ public class MemberProblemRepository {
                 .where(memberProblem.member.eq(member),
                         memberProblem.problemState.eq(ProblemState.NOW))
                 .fetch();
+    }
+
+    public Boolean isRecommended(Long num) {
+        return qm.selectFrom(memberProblem)
+                .leftJoin(memberProblem.problem, problem)
+                .where(memberProblem.problem.number.eq(num))
+                .fetchOne() != null;
     }
 }

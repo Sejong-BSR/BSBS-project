@@ -47,6 +47,8 @@ public class InitDataTest {
             Problem p9009 = Problem.create(9009L,"G2","음식 평론가");
             Problem p10001 = Problem.create(10001L,"G1","최소 스패닝 트리");
 
+            Problem recommend = Problem.create(1190L,"S1","추천된 문제");
+
             problemService.save(p1001);
             problemService.save(p2002);
             problemService.save(p3003);
@@ -57,6 +59,7 @@ public class InitDataTest {
             problemService.save(p8008);
             problemService.save(p9009);
             problemService.save(p10001);
+            problemService.save(recommend);
 
             // All recommended Problems
             MemberProblem mp1001 = MemberProblem.create(bob8dod, p1001);
