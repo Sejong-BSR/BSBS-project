@@ -24,8 +24,16 @@ public class HomeController {
     private final MemberProblemService memberProblemService;
 
     @GetMapping("/login")
-    public String temp(Model model){
+    public String flogin(Model model){
         return "login";
+    }
+
+    @GetMapping("/profile")
+    public String fprofile(Model model){
+        Member loginMember = memberService.findByBojId("bob8dod");
+        List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
+        model.addAttribute("memberProblemList",memberProblems);
+        return "profile";
     }
 
     @GetMapping("/")
