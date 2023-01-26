@@ -53,9 +53,7 @@ public class InitDataTest {
             Problem p14001 = Problem.create(14001L,"P2","부분수열의 합");
             Problem p15001 = Problem.create(15001L,"P2","대학생상어");
 
-
             Problem recommend = Problem.create(1190L,"S1","추천된 문제");
-
 
             problemService.save(p1001);
             problemService.save(p2002);
@@ -67,6 +65,7 @@ public class InitDataTest {
             problemService.save(p8008);
             problemService.save(p9009);
             problemService.save(p10001);
+
             problemService.save(recommend);
 
             problemService.save(p11001);
