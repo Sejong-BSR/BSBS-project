@@ -71,7 +71,7 @@
                 font-size: 12px; !important;
             }
             .t5{
-                font-size: 16px; !important;
+                font-size: 12px; !important;
             }
 
             svg{
@@ -203,12 +203,18 @@
 
                     <div class="row my-1 p-1" th:with="problem = ${memberProblem.problem}"> <!--th:if="${problem.pass==0}"-->
                         <hr>
-                        <a th:href="${problem.link}" class="row col fw-bold">
-                            <div class="col-2 t2 text-center" style="color: silver" th:if="${#strings.substring(problem.rank, 0, 1)=='S'}" th:text="${problem.rank}">S1</div>
-                            <div class="col-2 t2 text-center" style="color: gold" th:if="${#strings.substring(problem.rank, 0, 1)=='G'}" th:text="${problem.rank}">G1</div>
-                            <div class="col-2 t2 text-center" style="color: skyblue" th:if="${#strings.substring(problem.rank, 0, 1)=='P'}" th:text="${problem.rank}">P1</div>
-                            <div class="col-2 t4 text-center p-2 t1" th:text="${problem.number}">1812</div>
-                            <div class="col-8 t5 text-center text-truncate p-2" th:text="${problem.name}">아기상어와함께 여행을</div>
+                        <div class="col-1 align-self-center">
+                            <svg th:if="${memberProblem.solved}" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                            </svg>
+                        </div>
+
+                        <a th:href="${problem.link}" class="row fw-bold col-10">
+                            <div class="col-2 t2 text-center align-self-center" style="color: silver" th:if="${#strings.substring(problem.rank, 0, 1)=='S'}" th:text="${problem.rank}"><p>S1</p></div>
+                            <div class="col-2 t2 text-center" style="color: gold" th:if="${#strings.substring(problem.rank, 0, 1)=='G'}" th:text="${problem.rank}"><p>G1</p></div>
+                            <div class="col-2 t2 text-center" style="color: skyblue" th:if="${#strings.substring(problem.rank, 0, 1)=='P'}" th:text="${problem.rank}"><p>P1</p></div>
+                            <div class="col-2 t4 text-center p-2 t1 align-self-center" th:text="${problem.number}"><p>1812</p></div>
+                            <div class="col-8 t5 text-center text-truncate p-2" th:text="${problem.name}"><p>아기상어와함께 여행을</p></div>
                         </a>
                     </div>
                 </th:block>
