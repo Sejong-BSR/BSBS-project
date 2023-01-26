@@ -13,9 +13,21 @@
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <style>
+        .color1{
+            color: #0076C0;
+        }
+        html{
+            overflow-x: hidden;
+        }
         a{
             text-decoration: none;
             color: black;
+        }
+        .content1{
+            float: left;
+        }
+        .content2{
+            float: left;
         }
 
         .box{
@@ -29,6 +41,62 @@
         .box::-webkit-scrollbar-thumb {
             width: 5px;
             background-color: rgba(159, 159, 159, 1);
+        }
+
+        .button1{
+            border: none;
+            background-color: lightgray;
+        }
+        .button2{
+            border: lightgray 1px solid;
+            border-radius: 20px 20px 20px 20px;
+        }
+
+
+        @media (max-width: 766px) {
+            .content1{
+                width: 100%; !important;
+            }
+            .content2{
+                width: 100%; !important;
+            }
+            .t1{
+                font-size: 16px; !important;
+            }
+            .t2{
+                font-size: 16px; !important;
+            }
+
+            .t4{
+                font-size: 12px; !important;
+            }
+            .t5{
+                font-size: 16px; !important;
+            }
+
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (min-width: 767px) {
+            .content1{
+                width: 30%; !important;
+            }
+            .content2{
+                width: 70%; !important;
+            }
+            .t2{
+                font-size: calc(1.325rem + .9vw)!important;
+            }
+            .t4{
+                font-size: calc(1.275rem + .3vw)!important;
+            }
+            .t5{
+                font-size: 1.25rem !important;
+            }
+
         }
 
     </style>
@@ -55,7 +123,7 @@
     </form>
 </nav>
 
-<div class="container text-center">
+<div class="text-center">
     <div class="row">
         <div class="col">
             <p class="fs-1 fw-bold">Boogle</p>
@@ -64,93 +132,93 @@
 </div>
 
 
-<div class="container text-center h-75" style="background-color: gold">
-    <div class="row h-100">
-        <div class="col-4 h-100" style="background-color: deepskyblue;">
-            <div class="d-sm-flex justify-content-center">
-                <div><p class="fs-3 fw-bold">Profile</p></div>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
-                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
-                    </svg>
-                </div>
+<div class="w-75 container h-75 d-sm-flex justify-content-center">
+    <div class="content1 p-3 mx-3">
+        <div class="row mb-5">
+            <div class="d-sm-flex justify-content-center align-items-center">
+                <p class="fs-3 m-0 float-start fw-bold">Profile</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                </svg>
             </div>
-
-            <div class="w-100 text-start fs-5" style="border: solid 1px black; height: 70%;">
-                <div class="row" style="height: 10%;">
-                    <div class="col">아이디</div>
-                    <div class="col">dlwogns1205</div>
-                </div>
-                <div class="row" style="height: 10%;">
-                    <div class="col">푼 문제 수</div>
-                    <div class="col">144</div>
-                </div>
-                <div class="row" style="height: 10%;">
-                    <div class="col">추천된 문제 수</div>
-                    <div class="col">32</div>
-                </div>
-                <div class="row" style="height: 10%;">
-                    <div class="col">그룹</div>
-                    <div class="col">
-                        <div>BSRG/Owner</div>
-                        <div>BSRG/Owner</div>
-                    </div>
-                </div>
-
-                <div class="row align-items-end w-100" style="height: 50%;">
-                    <div class="col w-100">
-                        <div class="w-100"><button class="w-100">그룹 생성/관리</button></div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="w-100 row" style="border: solid 1px black; height: 20%;">
-                <div class="col-6 w-50"><button>백준</button></div>
-                <div class="col-6 w-50"><button>프로그래머스</button></div>
-            </div>
-
         </div>
 
 
-        <div class="col-8 h-100">
-            <div class="d-sm-flex justify-content-center" style="height: 5%;">
-                <div><p class="fs-3 fw-bold">Recommended history</p></div>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
+        <div class="row fs-5 mb-5 fw-bold">
+            <div class="row mb-3">
+                <div class="col t1">아이디</div>
+                <div class="col color1" >dlwogns1205</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col t1">푼 문제</div>
+                <div class="col color1">144</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col t1">추천된 문제</div>
+                <div class="col color1">32</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col t1">그룹</div>
+                <div class="col" >
+                    <div>BSRG/owner</div>
+                    <div>BSBS/owner</div>
+                    <div>SBSB/user</div>
+                    <div>GSRB/user</div>
                 </div>
             </div>
+            <div class="row m-0">
+                <div class="col">
+                    <button class="w-100 button1">그룹 관리/생성</button>
+                </div>
+            </div>
+        </div>
 
-            <div class="box" style="height: 95%;">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 button2" style="height: 80px;">백준</button>
+            </div>
+            <div class="col">
+                <button class="w-100 button2" style="height: 80px;">solved.ac</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="content2 h-75 p-3 mx-3">
+        <div class="row">
+            <div class="d-sm-flex justify-content-center align-items-center">
+                <p class="fs-3 m-0 float-start fw-bold">History</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="row h-100">
+            <div class="box h-100">
                 <th:block th:each="memberProblem :${memberProblemList}">
 
                     <div class="row my-1 p-1" th:with="problem = ${memberProblem.problem}"> <!--th:if="${problem.pass==0}"-->
                         <hr>
-                        <div class="col-2 align-self-center">
-                            <svg th:if="${memberProblem.solved}" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                            </svg>
-                        </div>
-
-                        <a th:href="${problem.link}" class="row col-8 fw-bold" style="border-radius: 32px 0px 0px 32px;">
-                            <div class="col-2 fs-2 text-center" style="color: silver" th:if="${#strings.substring(problem.rank, 0, 1)=='S'}" th:text="${problem.rank}">S1</div>
-                            <div class="col-2 fs-2 text-center" style="color: gold" th:if="${#strings.substring(problem.rank, 0, 1)=='G'}" th:text="${problem.rank}">G1</div>
-                            <div class="col-2 fs-2 text-center" style="color: skyblue" th:if="${#strings.substring(problem.rank, 0, 1)=='P'}" th:text="${problem.rank}">P1</div>
-                            <div class="col-2 fs-5 text-center p-2" th:text="${problem.number}">1812</div>
-                            <div class="col fs-4 text-center text-truncate p-2" th:text="${problem.name}">아기상어와함께 여행을</div>
+                        <a th:href="${problem.link}" class="row col fw-bold">
+                            <div class="col-2 t2 text-center" style="color: silver" th:if="${#strings.substring(problem.rank, 0, 1)=='S'}" th:text="${problem.rank}">S1</div>
+                            <div class="col-2 t2 text-center" style="color: gold" th:if="${#strings.substring(problem.rank, 0, 1)=='G'}" th:text="${problem.rank}">G1</div>
+                            <div class="col-2 t2 text-center" style="color: skyblue" th:if="${#strings.substring(problem.rank, 0, 1)=='P'}" th:text="${problem.rank}">P1</div>
+                            <div class="col-2 t4 text-center p-2 t1" th:text="${problem.number}">1812</div>
+                            <div class="col-8 t5 text-center text-truncate p-2" th:text="${problem.name}">아기상어와함께 여행을</div>
                         </a>
-
                     </div>
-
                 </th:block>
             </div>
-
         </div>
-
-
     </div>
 </div>
+
+
+</body>
+</html>
+
+

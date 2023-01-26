@@ -47,13 +47,15 @@ public class InitDataTest {
             Problem p9009 = Problem.create(9009L,"G2","음식 평론가");
             Problem p10001 = Problem.create(10001L,"G1","최소 스패닝 트리");
 
-//            Problem p11001 = Problem.create(11001L, "S5", "보도블럭");
-//            Problem p12001 = Problem.create(12001L,"S4","오목");
-//            Problem p13001 = Problem.create(13001L,"G3","테트로미노");
-//            Problem p14001 = Problem.create(14001L,"P2","부분수열의 합");
-//            Problem p15001 = Problem.create(15001L,"P2","대학생상어");
+            Problem p11001 = Problem.create(11001L, "S5", "보도블럭");
+            Problem p12001 = Problem.create(12001L,"S4","오목");
+            Problem p13001 = Problem.create(13001L,"G3","테트로미노");
+            Problem p14001 = Problem.create(14001L,"P2","부분수열의 합");
+            Problem p15001 = Problem.create(15001L,"P2","대학생상어");
+
 
             Problem recommend = Problem.create(1190L,"S1","추천된 문제");
+
 
             problemService.save(p1001);
             problemService.save(p2002);
@@ -67,11 +69,11 @@ public class InitDataTest {
             problemService.save(p10001);
             problemService.save(recommend);
 
-//            problemService.save(p11001);
-//            problemService.save(p12001);
-//            problemService.save(p13001);
-//            problemService.save(p14001);
-//            problemService.save(p15001);
+            problemService.save(p11001);
+            problemService.save(p12001);
+            problemService.save(p13001);
+            problemService.save(p14001);
+            problemService.save(p15001);
 
 
 
@@ -87,11 +89,11 @@ public class InitDataTest {
             MemberProblem mp9009 = MemberProblem.create(bob8dod, p9009);
             MemberProblem mp10001 = MemberProblem.create(bob8dod, p10001);
 
-//            MemberProblem mp11001 = MemberProblem.create(bob8dod, p11001);
-//            MemberProblem mp12001 = MemberProblem.create(bob8dod, p12001);
-//            MemberProblem mp13001 = MemberProblem.create(bob8dod, p13001);
-//            MemberProblem mp14001 = MemberProblem.create(bob8dod, p14001);
-//            MemberProblem mp15001 = MemberProblem.create(bob8dod, p15001);
+            MemberProblem mp11001 = MemberProblem.create(bob8dod, p11001);
+            MemberProblem mp12001 = MemberProblem.create(bob8dod, p12001);
+            MemberProblem mp13001 = MemberProblem.create(bob8dod, p13001);
+            MemberProblem mp14001 = MemberProblem.create(bob8dod, p14001);
+            MemberProblem mp15001 = MemberProblem.create(bob8dod, p15001);
 
 
             // Prev recommended Problems
@@ -112,11 +114,11 @@ public class InitDataTest {
             memberProblemService.save(mp9009);
             memberProblemService.save(mp10001);
 
-//            memberProblemService.save(mp11001);
-//            memberProblemService.save(mp12001);
-//            memberProblemService.save(mp13001);
-//            memberProblemService.save(mp14001);
-//            memberProblemService.save(mp15001);
+            memberProblemService.save(mp11001);
+            memberProblemService.save(mp12001);
+            memberProblemService.save(mp13001);
+            memberProblemService.save(mp14001);
+            memberProblemService.save(mp15001);
 
 
 
