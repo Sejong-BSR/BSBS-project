@@ -66,6 +66,8 @@ public class InitDataTest {
             problemService.save(p9009);
             problemService.save(p10001);
 
+
+
             problemService.save(recommend);
 
             problemService.save(p11001);
