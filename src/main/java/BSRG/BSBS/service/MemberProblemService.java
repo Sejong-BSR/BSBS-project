@@ -28,6 +28,10 @@ public class MemberProblemService {
         return memberProblemRepository.findAllByMemberNow(member);
     }
 
+    public List<MemberProblem> findAllByMemberPrev(Member member) {
+        return memberProblemRepository.findAllByMemberPrev(member);
+    }
+
     public void recommend(Member member) {
         Long recommendNum = runModel(member);
         while (memberProblemRepository.isRecommended(recommendNum) || member.checkSolved(recommendNum)) {

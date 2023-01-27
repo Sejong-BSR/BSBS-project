@@ -25,10 +25,19 @@ public class MemberProblemRepository {
     public void save(MemberProblem memberProblem) {
         em.persist(memberProblem);
     }
+
+
     public List<MemberProblem> findAllByMemberNow(Member member) {
         return qm.selectFrom(memberProblem)
                 .where(memberProblem.member.eq(member),
                         memberProblem.problemState.eq(ProblemState.NOW))
+                .fetch();
+    }
+
+    public List<MemberProblem> findAllByMemberPrev(Member member) {
+        return qm.selectFrom(memberProblem)
+                .where(memberProblem.member.eq(member),
+                        memberProblem.problemState.eq(ProblemState.PREV))
                 .fetch();
     }
 

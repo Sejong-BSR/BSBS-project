@@ -24,16 +24,8 @@ public class HomeController {
     private final MemberProblemService memberProblemService;
 
     @GetMapping("/login")
-    public String flogin(Model model){
+    public String login(Model model){
         return "login";
-    }
-
-    @GetMapping("/profile")
-    public String fprofile(Model model){
-        Member loginMember = memberService.findByBojId("bob8dod");
-        List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
-        model.addAttribute("memberProblemList",memberProblems);
-        return "profile";
     }
 
     @GetMapping("/")
@@ -52,5 +44,13 @@ public class HomeController {
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
         model.addAttribute("memberProblemList",memberProblems);
         return "home";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model){
+        Member loginMember = memberService.findByBojId("bob8dod");
+        List<MemberProblem> memberProblems = memberProblemService.findAllByMemberPrev(loginMember);
+        model.addAttribute("memberProblemList",memberProblems);
+        return "profile";
     }
 }
