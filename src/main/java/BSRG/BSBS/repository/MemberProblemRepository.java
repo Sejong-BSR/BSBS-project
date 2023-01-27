@@ -31,6 +31,7 @@ public class MemberProblemRepository {
         return qm.selectFrom(memberProblem)
                 .where(memberProblem.member.eq(member),
                         memberProblem.problemState.eq(ProblemState.NOW))
+                .orderBy(memberProblem.createdAt.desc())
                 .fetch();
     }
 
@@ -38,6 +39,7 @@ public class MemberProblemRepository {
         return qm.selectFrom(memberProblem)
                 .where(memberProblem.member.eq(member),
                         memberProblem.problemState.eq(ProblemState.PREV))
+                .orderBy(memberProblem.createdAt.desc())
                 .fetch();
     }
 
