@@ -11,7 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -46,6 +48,14 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/reset_problems")
+    public String resetProblemList(Model model) {
+        Member loginMember = memberService.findByBojId("bob8dod");
+        memberProblemService.resetRecommend(loginMember);
+        model.addAttribute("memberProblemList",new ArrayList<MemberProblem>());
+        return "home";
+    }
+
     @GetMapping("/profile")
     public String profile(Model model){
         Member loginMember = memberService.findByBojId("bob8dod");
@@ -53,4 +63,6 @@ public class HomeController {
         model.addAttribute("memberProblemList",memberProblems);
         return "profile";
     }
+
+
 }

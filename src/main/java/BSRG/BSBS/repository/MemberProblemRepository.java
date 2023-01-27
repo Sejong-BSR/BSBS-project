@@ -41,10 +41,20 @@ public class MemberProblemRepository {
                 .fetch();
     }
 
-    public Boolean isRecommended(Long num) {
+    public Boolean isRecommended(Long num) { // 수정 필요
         return qm.selectFrom(memberProblem)
                 .leftJoin(memberProblem.problem, problem)
                 .where(memberProblem.problem.number.eq(num))
                 .fetchOne() != null;
+    }
+
+    public void updateMemberProblemStateToPrev(Member member) {
+        qm.update(memberProblem)
+                .set(memberProblem.problemState, ProblemState.PREV)
+                .where(memberProblem.member.eq(member),
+                        memberProblem.problemState.eq(ProblemState.NOW))
+                .execute();
+
+        em.clear();
     }
 }

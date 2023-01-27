@@ -42,6 +42,10 @@ public class MemberProblemService {
         save(recommendedMemberProblem);
     }
 
+    public void resetRecommend(Member member) {
+        memberProblemRepository.updateMemberProblemStateToPrev(member);
+    }
+
     private Long runModel(Member member) {
         Long resultProblemNum = 1190L; // recommendation model result
         return resultProblemNum;
