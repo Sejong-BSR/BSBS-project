@@ -6,11 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+
+import static java.time.LocalDateTime.now;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MemberProblem {
+public class MemberProblem extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -35,7 +38,7 @@ public class MemberProblem {
         memberProblem.member = member;
         memberProblem.problem = problem;
         memberProblem.problemState = ProblemState.NOW;
-
+        memberProblem.setCreatedAt(now());
         return memberProblem;
     }
 

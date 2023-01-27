@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Problem {
+public class Problem extends BaseEntity {
 
     @Id
     @GeneratedValue

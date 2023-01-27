@@ -8,11 +8,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+
+import static java.time.LocalDateTime.now;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue
@@ -26,6 +29,7 @@ public class Member {
         Member member = new Member();
         member.bojId = bojId;
         member.link = "https://www.acmicpc.net/user/" + bojId;
+        member.setCreatedAt(now());
         return member;
     }
 
