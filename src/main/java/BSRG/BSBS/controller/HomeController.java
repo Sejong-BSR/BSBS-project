@@ -45,7 +45,7 @@ public class HomeController {
         memberProblemService.recommend(loginMember);
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberNow(loginMember);
         model.addAttribute("memberProblemList",memberProblems);
-        return "home";
+        return "redirect:/"; // url 을 통한 문제 추가 방지
     }
 
     @GetMapping("/reset_problems")
