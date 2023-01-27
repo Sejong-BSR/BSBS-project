@@ -10,6 +10,11 @@ import BSRG.BSBS.service.ProblemService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,11 +44,18 @@ public class HomeController {
     public String toLogin(@ModelAttribute("loginForm") LoginForm loginForm, HttpServletRequest request,
                           @RequestParam(name = "redirectURL", defaultValue = "/") String redirectURL) {
 
-        Member loginMember = getLoginMember(loginForm.getLoginId());
+        String loginId = loginForm.getLoginId();
+        Member loginMember = getLoginMember(loginId);
+
+        // 정보가 있는 Member 의 로그인 -> 기존 Member Entity 수정
+        // 정보가 없는 Member 의 로그인 -> 새로운 Member Entity 생성
+        loginMember = createOrEditMember(loginId, loginMember);
+
         if (loginMember == null) {
             return "redirect:/login";
         }
-        log.info(loginMember.getBojId());
+
+        log.info(loginMember.getBojId() + " login!!");
         HttpSession session = request.getSession();
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember.getBojId());
         return "redirect:" + redirectURL;
@@ -61,14 +73,21 @@ public class HomeController {
     }
 
     @GetMapping("/add_problem")
-    public String addProblem(Model model, @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberBojId) {
+    public String addProblem(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberBojId) {
         Member loginMember = getLoginMember(loginMemberBojId);
         memberProblemService.recommend(loginMember);
         return "redirect:/"; // url 을 통한 문제 추가 방지
     }
 
+    @GetMapping("/reload_problems")
+    public String reloadProblems(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberBojId) {
+        Member loginMember = getLoginMember(loginMemberBojId);
+        // 로직 생성 필요 (Using Jsoup)
+        return "redirect:/";
+    }
+
     @GetMapping("/reset_problems")
-    public String resetProblemList(Model model, @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberBojId) {
+    public String resetProblemList(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberBojId) {
         Member loginMember = getLoginMember(loginMemberBojId);
         memberProblemService.resetRecommend(loginMember);
         return "redirect:/";
@@ -78,8 +97,37 @@ public class HomeController {
     public String profile(Model model,  @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberId){
         Member loginMember = getLoginMember(loginMemberId);
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberPrev(loginMember);
+        model.addAttribute("loginMember", loginMember);
         model.addAttribute("memberProblemList",memberProblems);
         return "profile";
+    }
+
+    private Member createOrEditMember(String loginId, Member loginMember) {
+        String loginURL = "https://www.acmicpc.net/user/" + loginId;
+        try {
+            Connection conn = Jsoup.connect(loginURL);
+            Document html = conn.get();
+            Elements problemList = html.getElementsByClass("result-ac");
+            StringBuilder solvedNumsList = new StringBuilder();
+            int solvedTotal = 0;
+            for (Element problem : problemList) {
+                solvedTotal += 1;
+                solvedNumsList.append(problem.text()).append(" ");
+            }
+            String solvedNums = solvedNumsList.toString();
+            if (loginMember == null) {
+                Member newMember = Member.create(loginId);
+                memberService.save(newMember);
+                loginMember = newMember;
+            }
+            loginMember.editSolved(solvedNums, solvedTotal);
+
+
+        } catch (Exception e) {
+            log.error(e.getMessage());
+
+        }
+        return loginMember;
     }
 
     private Member getLoginMember(String loginMemberId) {

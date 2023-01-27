@@ -31,6 +31,7 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-devtools' // for easy rebuilding
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.1' //for tracking sql query
+	implementation 'org.jsoup:jsoup:1.15.3'
 
 	// Querydsl
 	implementation "com.querydsl:querydsl-jpa:5.0.0"

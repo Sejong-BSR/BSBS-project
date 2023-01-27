@@ -22,7 +22,9 @@ public class Member extends BaseEntity{
     @Column(name = "member_id")
     private long id;
     private String bojId;
+    @Column(length = 5000)
     private String solvedNums;
+    private int solvedTotal;
     private String link; // profile link (BOJ site)
 
     public static Member create(String bojId) {
@@ -35,6 +37,11 @@ public class Member extends BaseEntity{
 
     public void setSolvedNums(String updatedSolvedNums) {
         this.solvedNums = updatedSolvedNums;
+    }
+
+    public void editSolved(String solvedNums, int solvedTotal) {
+        this.solvedNums = solvedNums;
+        this.solvedTotal = solvedTotal;
     }
 
     public Boolean checkSolved(Long num) {
