@@ -86,11 +86,13 @@
 </div>
 
 <div class="container text-center my-5 animation1">
-    <div class="row">
+    <form class="row" method="post" th:object="${loginForm}">
         <div class="col">
-            <input class="p-3 box text-center" type="text" placeholder="백준 아이디를 입력해주세요. [ENTER]" style="height: 50px;">
+            <label>
+                <input type="text" th:field="*{loginId}" class="p-3 box text-center" placeholder="백준 아이디를 입력해주세요." style="height: 50px;">
+            </label>
         </div>
-    </div>
+    </form>
 </div>
 
 </body>
