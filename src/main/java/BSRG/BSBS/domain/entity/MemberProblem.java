@@ -25,6 +25,7 @@ public class MemberProblem {
     @JoinColumn(name = "problem_id")
     private Problem problem;
 
+    @Enumerated(EnumType.STRING)
     private ProblemState problemState;
     private Boolean solved = Boolean.FALSE;
 
