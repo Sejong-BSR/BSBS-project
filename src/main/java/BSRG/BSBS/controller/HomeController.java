@@ -3,7 +3,6 @@ package BSRG.BSBS.controller;
 import BSRG.BSBS.config.SessionConst;
 import BSRG.BSBS.domain.entity.Member;
 import BSRG.BSBS.domain.entity.MemberProblem;
-import BSRG.BSBS.domain.entity.Problem;
 import BSRG.BSBS.service.MemberProblemService;
 import BSRG.BSBS.service.MemberService;
 import BSRG.BSBS.service.ProblemService;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -78,7 +76,7 @@ public class HomeController {
     public String profile(Model model,  @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) String loginMemberId){
         Member loginMember = getLoginMember(loginMemberId);
         List<MemberProblem> memberProblems = memberProblemService.findAllByMemberPrev(loginMember);
-        model.addAttribute("memberProblemList",memberProblems);
+        model.addAttribute("memberProblemList", memberProblems);
         return "profile";
     }
 

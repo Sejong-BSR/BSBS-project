@@ -97,14 +97,14 @@ public class InitDataTest {
             MemberProblem mp15001 = MemberProblem.create(bob8dod, p15001);
 
 
-            /*
+
             // Prev recommended Problems
             mp6006.UpdateProblemState();
             mp7007.UpdateProblemState();
             mp8008.UpdateProblemState();
             mp9009.UpdateProblemState();
             mp10001.UpdateProblemState();
-            */
+
 
             memberProblemService.save(mp1001);
             memberProblemService.save(mp2002);
@@ -126,6 +126,11 @@ public class InitDataTest {
 
 
         }
+
+
+    }
+
+    public void dbInit2() {
 
     }
 

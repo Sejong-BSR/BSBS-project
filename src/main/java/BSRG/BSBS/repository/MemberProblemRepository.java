@@ -2,8 +2,6 @@ package BSRG.BSBS.repository;
 
 import BSRG.BSBS.domain.entity.Member;
 import BSRG.BSBS.domain.entity.MemberProblem;
-import BSRG.BSBS.domain.entity.QMemberProblem;
-import BSRG.BSBS.domain.entity.QProblem;
 import BSRG.BSBS.domain.etc.ProblemState;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

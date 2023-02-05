@@ -205,9 +205,9 @@
                         </div>
 
                         <a th:href="${problem.link}" class="row fw-bold col-10">
-                            <div class="col-2 t2 text-center align-self-center" style="color: silver" th:if="${#strings.substring(problem.rank, 0, 1)=='S'}" th:text="${problem.rank}"><p>S1</p></div>
-                            <div class="col-2 t2 text-center" style="color: gold" th:if="${#strings.substring(problem.rank, 0, 1)=='G'}" th:text="${problem.rank}"><p>G1</p></div>
-                            <div class="col-2 t2 text-center" style="color: skyblue" th:if="${#strings.substring(problem.rank, 0, 1)=='P'}" th:text="${problem.rank}"><p>P1</p></div>
+                            <div class="col-2 t2 text-center align-self-center" style="color: silver" th:if="${#strings.substring(problem.getGrade, 0, 1)=='S'}" th:text="${problem.getGrade}"><p>S1</p></div>
+                            <div class="col-2 t2 text-center" style="color: gold" th:if="${#strings.substring(problem.getGrade, 0, 1)=='G'}" th:text="${problem.getGrade}"><p>G1</p></div>
+                            <div class="col-2 t2 text-center" style="color: skyblue" th:if="${#strings.substring(problem.getGrade, 0, 1)=='P'}" th:text="${problem.getGrade}"><p>P1</p></div>
                             <div class="col-2 t4 text-center p-2 t1 align-self-center" th:text="${problem.number}"><p>1812</p></div>
                             <div class="col-8 t5 text-center text-truncate p-2" th:text="${problem.name}"><p>아기상어와함께 여행을</p></div>
                         </a>
